@@ -1,0 +1,44 @@
+{% extends "expense_tracker_app/base.html" %}
+
+{% block title %}Index{% endblock title %}
+
+{% block body %}
+<h1 class="text-2xl mx-10 my-5">Expense Form</h1>
+<form class="shadow-md m-10" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-container p-5 flex">
+
+        <div class="mx-5">
+            <div class="mb-2">
+                <label>Expense Name:</label>
+            </div>
+            <div class="border p-1 px-2 rounded">
+                {{expense_form.name}}
+            </div>
+        </div>
+
+        <div class="mx-5">
+            <div class="mb-2">
+                <label>Amount:</label>
+            </div>
+            <div class="border p-1 rounded">
+                {{expense_form.amount}}
+            </div>
+        </div>
+
+        <div class="mx-5">
+            <div class="mb-2">
+                <label>Category:</label>
+            </div>
+            <div class="border p-1 rounded">
+                {{expense_form.category}}
+            </div>
+        </div>
+
+        <div class="mx-5 mt-8">
+            <button class="bg-green-500 text-white rounded-lg px-4 py-1">Save</button>
+        </div>
+
+    </div>
+</form>
+{% endblock body %}
